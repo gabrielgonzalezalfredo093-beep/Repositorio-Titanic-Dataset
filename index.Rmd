@@ -241,3 +241,58 @@ df %>%
 
 
 ```
+
+```{r Supervivencia por Grupos Etarios }
+
+# Tabla de contingencia: Supervivencia vs Grupo de Edad
+tabla_edad <- table(df$Grupo_Edad, df$Sobrevivio)
+prop_edad <- prop.table(tabla_edad, margin = 1) * 100
+
+cat("Tabla de Contingencia: Supervivencia por Grupo de Edad\n")
+tabla_edad %>% kable() %>% kable_styling()
+
+cat("\nPorcentajes por Fila (Grupo de Edad):\n")
+prop_edad %>% round(2) %>% kable() %>% kable_styling()
+
+# Gráfico de supervivencia por grupos etarios
+df %>%
+  count(Grupo_Edad, Sobrevivio) %>%
+  group_by(Grupo_Edad) %>%
+  mutate(Porcentaje = n/sum(n)*100) %>%
+  ggplot(aes(x = Grupo_Edad, y = Porcentaje, fill = Sobrevivio)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_text(aes(label = paste0(round(Porcentaje, 1), "%")), 
+            position = position_dodge(width = 0.9), vjust = -0.5, size = 3) +
+  labs(title = "Tasa de Supervivencia por Grupo de Edad",
+       x = "Grupo de Edad", y = "Porcentaje", fill = "Sobrevivió") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_manual(values = c("No" = "#e74c3c", "Sí" = "#2ecc71"))
+
+```
+
+```{r Análisis Combinado: Sexo y Grupos Etarios }
+
+# Análisis combinado de sexo y grupos etarios
+analisis_combinado <- df %>%
+  group_by(Sexo, Grupo_Edad) %>%
+  summarise(
+    Total = n(),
+    Sobrevivientes = sum(Sobrevivio == "Sí"),
+    Tasa_Supervivencia = round(Sobrevivientes/Total * 100, 2),
+    .groups = 'drop'
+  )
+
+cat("Análisis Combinado: Sexo y Grupo de Edad\n")
+analisis_combinado %>% kable() %>% kable_styling()
+
+# Heatmap de supervivencia
+ggplot(analisis_combinado, aes(x = Sexo, y = Grupo_Edad, fill = Tasa_Supervivencia)) +
+  geom_tile(color = "white") +
+  geom_text(aes(label = paste0(Tasa_Supervivencia, "%")), color = "white", size = 4) +
+  scale_fill_gradient(low = "#e74c3c", high = "#2ecc71", name = "Tasa de\nSupervivencia (%)") +
+  labs(title = "Mapa de Calor: Tasa de Supervivencia por Sexo y Grupo de Edad",
+       x = "Sexo", y = "Grupo de Edad") +
+  theme_minimal()
+
+```
