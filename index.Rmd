@@ -16,6 +16,11 @@ editor_options:
     wrap: 72
 ---
 
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
 # Introduccion
 
 El Titanic, el barco más lujoso de su época, se hundió en su viaje
@@ -58,4 +63,33 @@ demográfico característico entre los sobrevivientes.
 La investigación aportará evidencia concreta sobre la aplicación real de
 los protocolos de salvamento y el papel que jugaron el género y la edad
 como factores determinantes en la supervivencia durante una de las
-mayores tragedias marítimas de la historia
+mayores tragedias marítimas de la historia.
+
+## 2. Objetivo
+
+### 2.1 Objetivo General
+
+Analizar la influencia del sexo y la edad en la supervivencia de los
+pasajeros del Titanic.
+
+### 2.2 Objetivo Especifico 
+
+-   Determinar la tasa de supervivencia global por sexo (hombres vs.
+    mujeres).
+-   Identificar la distribución de edades entre supervivientes y no
+    supervivientes.
+-   Clasificar a los pasajeros en rangos etarios (niños, adultos,
+    adultos mayores) y evaluar su supervivencia.
+-   Establecer si existió un patrón de preferencia por algún grupo
+    demográfico (mujeres y niños).
+
+## 3. Justificación
+
+El análisis de sexo y edad en contextos de desastre es crucial para
+entender las dinámicas sociales y los sesgos en protocolos de
+emergencia. En el caso del Titanic, este enfoque permite verificar la
+aplicación real de la norma no escrita de "mujeres y niños primero".
+Desde una perspectiva formativa, trabajar con estas variables ofrece una
+base clara para practicar análisis univariantes y bivariantes, útiles en
+estadística descriptiva y ciencias sociales.
+
