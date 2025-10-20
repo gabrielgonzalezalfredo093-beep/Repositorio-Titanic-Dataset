@@ -1,0 +1,61 @@
+---
+title: '"Análisis de la Supervivencia en el Titanic: El Impacto del Género y la Edad"'
+subtitle: "Un Estudio Estadístico Descriptivo de los Patrones de Supervivencia"
+author: "Anyimar Castillo y Gabriel Gonzalez"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: united
+    highlight: tango
+    code_folding: "hide"
+    df_print: paged
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+# Introduccion
+
+El Titanic, el barco más lujoso de su época, se hundió en su viaje
+inaugural desde Southampton a Nueva York. La noche del 14 de abril de
+1912, chocó contra un iceberg en el Atlántico Norte. En apenas unas
+horas, la nave se partió y se hundió en las heladas aguas. De las
+aproximadamente 2,224 personas a bordo, más de 1,500 perdieron la vida,
+en una de las mayores tragedias marítima. La escasez de botes
+salvavidas, insuficientes para todos los pasajeros, fue un factor
+crucial en la alta mortalidad. Existió un protocolo no escrito de
+"mujeres y niños primero", pero si este se aplicó de manera efectiva es
+una de las preguntas clave que busca responder esta investigación. La
+tragedia conmocionó al mundo y provocó una revisión total de los
+reglamentos de seguridad marítima. Su legado perdura en la cultura
+popular, simbolizando los límites de la tecnología frente a la
+naturaleza.
+
+# Planteamiento de la Investigación
+
+## 1. Planteamiento del Problema
+
+El naufragio del Titanic reveló importantes discrepancias en los
+protocolos de salvamento, donde factores como el género y la edad
+pudieron influir en las oportunidades de supervivencia. Por ejemplo,
+existió la política de "mujeres y niños primero", a partir de una
+muestra representativa de pasajeros, esta investigación busca responder
+preguntas cruciales como: ¿Realmente se privilegió la supervivencia
+femenina sobre la masculina? ¿Los niños y adultos mayores tuvieron
+prioridad real en el rescate? ¿Cómo se distribuyeron las edades entre
+supervivientes y no supervivientes? ¿Existieron diferencias
+significativas en la composición demográfica entre ambos grupos?
+
+Este estudio se centra exclusivamente en analizar la relación entre
+variables sexo y edad con la supervivencia en el hundimiento del
+Titanic. Mediante análisis estadístico descriptivo y comparativo, se
+examinarán los patrones de supervivencia desagregados por género y
+grupos etarios, con el objetivo de determinar si existió un perfil
+demográfico característico entre los sobrevivientes.
+
+La investigación aportará evidencia concreta sobre la aplicación real de
+los protocolos de salvamento y el papel que jugaron el género y la edad
+como factores determinantes en la supervivencia durante una de las
+mayores tragedias marítimas de la historia
