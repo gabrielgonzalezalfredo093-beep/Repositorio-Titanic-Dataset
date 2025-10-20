@@ -168,3 +168,46 @@ cat("Resumen después del preprocesamiento:\n")
 table(df$Sobrevivio) %>% kable() %>% kable_styling()
 
 ```
+
+```{r Análisis Descriptivo Univariante Variable: Supervivencia }
+
+# Análisis de supervivencia global
+superv_global <- df %>%
+  count(Sobrevivio) %>%
+  mutate(Porcentaje = round(n/sum(n)*100, 2))
+
+cat("Distribución de Supervivencia Global:\n")
+superv_global %>% kable() %>% kable_styling()
+
+# Gráfico de supervivencia global
+ggplot(superv_global, aes(x = Sobrevivio, y = n, fill = Sobrevivio)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = paste0(n, " (", Porcentaje, "%)")), vjust = -0.5) +
+  labs(title = "Distribución de Supervivencia en el Titanic",
+       x = "Sobrevivió", y = "Número de Pasajeros") +
+  theme_minimal() +
+  scale_fill_manual(values = c("No" = "#e74c3c", "Sí" = "#2ecc71"))
+
+```
+
+```{r Análisis Descriptivo Univariante Variable: Sexo }
+
+# Análisis de distribución por sexo
+dist_sexo <- df %>%
+  count(Sexo) %>%
+  mutate(Porcentaje = round(n/sum(n)*100, 2))
+
+cat("Distribución por Sexo:\n")
+dist_sexo %>% kable() %>% kable_styling()
+
+# Gráfico de distribución por sexo
+ggplot(dist_sexo, aes(x = Sexo, y = n, fill = Sexo)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = paste0(n, " (", Porcentaje, "%)")), vjust = -0.5) +
+  labs(title = "Distribución de Pasajeros por Sexo",
+       x = "Sexo", y = "Número de Pasajeros") +
+  theme_minimal() +
+  scale_fill_manual(values = c("Hombre" = "#3498db", "Mujer" = "#e91e63"))
+
+
+```
