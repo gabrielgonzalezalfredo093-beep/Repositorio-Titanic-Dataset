@@ -93,3 +93,78 @@ Desde una perspectiva formativa, trabajar con estas variables ofrece una
 base clara para practicar análisis univariantes y bivariantes, útiles en
 estadística descriptiva y ciencias sociales.
 
+```{r Cargar Paquetes , include=FALSE}
+
+# Cargar librerías
+
+if(!require(tidyverse)) install.packages("tidyverse")
+if(!require(ggplot2)) install.packages("ggplot2")
+if(!require(kableExtra)) install.packages("kableExtra")
+
+library(tidyverse)
+library(ggplot2)
+library(kableExtra)
+
+```
+
+```{r Carga y Exploración de Datos}
+
+# Cargar dataset del Titanic
+titanic_data <- read.csv("https://raw.githubusercontent.com/gabrielgonzalezalfredo093-beep/Repositorio-Titanic-Dataset/refs/heads/main/Titanic-Dataset.csv", stringsAsFactors = FALSE)
+                          
+
+# Ver estructura inicial
+cat("Dimensiones del dataset:", dim(titanic_data), "\n")
+cat("Variables disponibles:", names(titanic_data), "\n\n")
+
+# Mostrar primeras filas
+head(titanic_data) %>% kable() %>% kable_styling(bootstrap_options = "striped")
+
+# Información básica del dataset
+str(titanic_data)
+summary(titanic_data)
+
+```
+
+```{r Preprocesamiento y Limpieza}
+
+# Crear copia del dataset para análisis
+df <- titanic_data
+
+# Renombrar variables en español
+df <- df %>%
+  rename(
+    Sobrevivio = Survived,
+    Sexo = Sex,
+    Edad = Age,
+    Clase = Pclass
+  )
+
+# Convertir variables categóricas
+df <- df %>%
+  mutate(
+    Sobrevivio = factor(Sobrevivio, levels = c(0, 1), labels = c("No", "Sí")),
+    Sexo = factor(Sexo, levels = c("male", "female"), labels = c("Hombre", "Mujer")),
+    Clase = factor(Clase, levels = c(1, 2, 3), labels = c("Primera", "Segunda", "Tercera"))
+  )
+
+# Crear grupos etarios
+df <- df %>%
+  mutate(
+    Grupo_Edad = case_when(
+      Edad < 12 ~ "Niño (0-11)",
+      Edad >= 12 & Edad < 18 ~ "Adolescente (12-17)",
+      Edad >= 18 & Edad < 60 ~ "Adulto (18-59)",
+      Edad >= 60 ~ "Adulto Mayor (60+)",
+      is.na(Edad) ~ "Edad Desconocida"
+    ),
+    Grupo_Edad = factor(Grupo_Edad, 
+                       levels = c("Niño (0-11)", "Adolescente (12-17)", "Adulto (18-59)", 
+                                 "Adulto Mayor (60+)", "Edad Desconocida"))
+  )
+
+# Verificar transformaciones
+cat("Resumen después del preprocesamiento:\n")
+table(df$Sobrevivio) %>% kable() %>% kable_styling()
+
+```
