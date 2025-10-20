@@ -211,3 +211,33 @@ ggplot(dist_sexo, aes(x = Sexo, y = n, fill = Sexo)) +
 
 
 ```
+
+
+```{r Supervivencia por Sexo }
+
+# Tabla de contingencia: Supervivencia vs Sexo
+tabla_sexo <- table(df$Sexo, df$Sobrevivio)
+prop_sexo <- prop.table(tabla_sexo, margin = 1) * 100
+
+cat("Tabla de Contingencia: Supervivencia por Sexo\n")
+tabla_sexo %>% kable() %>% kable_styling()
+
+cat("\nPorcentajes por Fila (Sexo):\n")
+prop_sexo %>% round(2) %>% kable() %>% kable_styling()
+
+# Gráfico de supervivencia por sexo
+df %>%
+  count(Sexo, Sobrevivio) %>%
+  group_by(Sexo) %>%
+  mutate(Porcentaje = n/sum(n)*100) %>%
+  ggplot(aes(x = Sexo, y = Porcentaje, fill = Sobrevivio)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_text(aes(label = paste0(round(Porcentaje, 1), "%")), 
+            position = position_dodge(width = 0.9), vjust = -0.5) +
+  labs(title = "Tasa de Supervivencia por Sexo",
+       x = "Sexo", y = "Porcentaje", fill = "Sobrevivió") +
+  theme_minimal() +
+  scale_fill_manual(values = c("No" = "#e74c3c", "Sí" = "#2ecc71"))
+
+
+```
