@@ -25,6 +25,6 @@ significativas en la composición demográfica entre ambos grupos?
 
 ## Levantar proyecto hecho en Informe Dinamico con Rmarkdown. 
 
-1. Hacer click al proyecto de (https://anyicastillo.github.io/Analisis_Titanic/)
+1. Hacer click al proyecto de (https://gabrielgonzalezalfredo093-beep.github.io/Repositorio-Titanic-Dataset/)
 
 ![Static Badge](https://img.shields.io/badge/HTML-red) ![Static Badge](https://img.shields.io/badge/R-blue) ![Static Badge](https://img.shields.io/badge/Python-yellow) 
