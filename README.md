@@ -23,7 +23,7 @@ significativas en la composición demográfica entre ambos grupos?
 5. Instala los paquestes necesario para el proyecto `pip install -r requirements.txt`.
 6. Levanta el proyecto con `streamlit run .\app.py`.
 
-o podra visualizar el Dashboard en el sisguiente Link
+o podra visualizar el Dashboard en el siguiente Link
 
 (https://analisis-titanic.onrender.com/)
 
