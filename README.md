@@ -23,7 +23,11 @@ significativas en la composición demográfica entre ambos grupos?
 5. Instala los paquestes necesario para el proyecto `pip install -r requirements.txt`.
 6. Levanta el proyecto con `streamlit run .\app.py`.
 
-## Levantar proyecto hecho en Informe Dinamico con Rmarkdown. 
+o podra visualizar el Dashboard en el sisguiente Link
+
+(https://analisis-titanic.onrender.com/)
+
+## Ver proyecto hecho en Informe Dinamico con Rmarkdown. 
 
 1. Hacer click al proyecto de (https://gabrielgonzalezalfredo093-beep.github.io/Repositorio-Titanic-Dataset/)
 
