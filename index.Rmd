@@ -93,6 +93,9 @@ Desde una perspectiva formativa, trabajar con estas variables ofrece una
 base clara para practicar análisis univariantes y bivariantes, útiles en
 estadística descriptiva y ciencias sociales.
 
+
+## 4. Gráficas  
+
 ```{r Cargar Paquetes , include=FALSE}
 
 # Cargar librerías
@@ -107,7 +110,7 @@ library(kableExtra)
 
 ```
 
-```{r Carga y Exploración de Datos}
+```{r Carga y Exploración de Datos , include=FALSE}
 
 # Cargar dataset del Titanic
 titanic_data <- read.csv("https://raw.githubusercontent.com/gabrielgonzalezalfredo093-beep/Repositorio-Titanic-Dataset/refs/heads/main/Titanic-Dataset.csv", stringsAsFactors = FALSE)
@@ -126,7 +129,7 @@ summary(titanic_data)
 
 ```
 
-```{r Preprocesamiento y Limpieza}
+```{r Preprocesamiento y Limpieza, include=FALSE}
 
 # Crear copia del dataset para análisis
 df <- titanic_data
@@ -325,3 +328,6 @@ ggplot(df, aes(x = Sobrevivio, y = Edad, fill = Sobrevivio)) +
 
 ```
 
+## 5. Conclusión
+
+El análisis estadístico del Titanic confirma de manera contundente que el género fue el factor determinante en la supervivencia, validando históricamente la aplicación del protocolo "mujeres y niños primero". Las mujeres mostraron una tasa de supervivencia del 74.20% frente al 18.89% de los hombres, una brecha del 55.31% que revela la primacía del género sobre cualquier otra consideración demográfica. Si bien los niños fueron efectivamente protegidos (57.35% de supervivencia), el análisis combinado demostró que esta protección operaba de forma secundaria al privilegio femenino, observándose que las mujeres de todos los grupos etarios -incluyendo el 100% de las adultas mayores- mantuvieron tasas de supervivencia consistentemente altas. Estos patrones no solo cuantifican por primera vez la magnitud de las disparidades en el rescate, sino que exponen las jerarquías sociales profundamente arraigadas en la época Edwardiana, donde el valor percibido de una vida estaba determinado primordialmente por el género, incluso en circunstancias extremas de vida o muerte. El Titanic representa así un testimonio estadístico invaluable sobre cómo las normas sociales pueden traducirse en patrones de supervivencia dramáticamente diferenciados durante crisis humanitarias.
